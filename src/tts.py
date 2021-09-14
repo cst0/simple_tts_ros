@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 import os
 import json
@@ -49,7 +51,10 @@ class SpeechEngine(object):
 
         self.speech_engine = Engine()
 
-        self.text_input_subscriber = rospy.Subscriber("tts_in", String)
+        self.text_input_subscriber = rospy.Subscriber("tts_in", String, self.text_input_callback)
+
+    def text_input_callback(self, msg:String):
+        self.speech_engine.say(msg.data)
 
     def shutdown(self):
         self.text_input_subscriber.unregister()

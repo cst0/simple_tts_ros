@@ -1,5 +1,5 @@
 <launch>
-    <node name="tts" pkg="simple_tts" type="tts.py">
+    <node name="tts" pkg="simple_tts" type="tts.py" output="screen">
         <param name="engine" value="gtts" />
     </node>
 </launch>
