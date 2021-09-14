@@ -30,6 +30,9 @@ read from the command line. To perform this, two operating system dependencies
 default. `mpg321` can be acquired via your package manager. Future plans
 involve removing these operating-system dependencies.
 
+If using `pyttsx3`, you will likely need to install its dependency of `libespeak`
+(if on Ubuntu, this can be done via `sudo apt install libespeak-dev`).
+
 # Installation
 
 ## From Source
