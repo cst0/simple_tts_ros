@@ -6,7 +6,8 @@ import json
 
 import rospy
 
-from std_msgs.msg import String
+from simple_tts.msg import Speak
+from simple_tts.srv import SpeechRequest, SpeechRequestRequest, SpeechRequestResponse
 
 DEFAULT_TTS_ENGINE = "coqui"
 
@@ -18,7 +19,7 @@ class SpeechEngine(object):
             rospy.loginfo("No engine specified: defaulting to " + DEFAULT_TTS_ENGINE)
             speech_engine = DEFAULT_TTS_ENGINE
 
-        rospy.loginfo("Engine selected: "+speech_engine)
+        rospy.loginfo("Engine selected: " + speech_engine)
 
         config_path = os.path.abspath(
             os.path.dirname(os.path.abspath(__file__)) + "/../config/engines.json"
@@ -53,13 +54,24 @@ class SpeechEngine(object):
 
         self.speech_engine = Engine()
 
-        self.text_input_subscriber = rospy.Subscriber("tts_in", String, self.text_input_callback)
+        self.text_input_subscriber = rospy.Subscriber(
+            "tts_in", Speak, self.text_input_callback
+        )
 
-    def text_input_callback(self, msg:String):
-        self.speech_engine.say(msg.data)
+        self.text_input_service = rospy.Service(
+            "call_tts", SpeechRequest, self.text_input_server
+        )
+
+    def text_input_callback(self, msg: Speak):
+        self.speech_engine.say(msg.text)
+
+    def text_input_server(self, req: SpeechRequestRequest):
+        self.speech_engine.say(req.text)
+        return SpeechRequestResponse()
 
     def shutdown(self):
         self.text_input_subscriber.unregister()
+        self.text_input_service.shutdown()
         self.speech_engine.shutdown()
 
 
