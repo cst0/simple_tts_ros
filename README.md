@@ -9,8 +9,8 @@ The following TTS engines are supported:
 
 - gtts
 - coqui
-- marytts
-- pyttsx3
+- ~~marytts~~ (in progress)
+- ~~pyttsx3~~ (in progress)
 
 # Dependencies
 For the sake of reducing dependencies, all supported engines are not included
@@ -34,7 +34,7 @@ involve removing these operating-system dependencies.
 
 ## From Source
 
-clone and then catkin_make.
+This is a standard ros pacakge. Once the above dependencies have been resolved, clone into your catkin workspace and then run catkin_make.
 
 ## As a binary
 
