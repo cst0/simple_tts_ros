@@ -18,6 +18,11 @@ class Engine(TTSEngine):
     def say(self, text: str):
         self.speaking = True
         with tempfile.NamedTemporaryFile("w+", suffix=".wav") as temp:
+            # coqui's models can get funky if utterances aren't terminated with a single full-stop
+            if not text.endswith('.'):
+                text = text + '.'
+
+            # coqui is made available via this cli. Don't love doing this but it works.
             subprocess.check_output(["tts", "--text", text, "--out_path", temp.name])
             subprocess.check_output(["aplay", temp.name]) # TODO-- remove OS dependency
         self.speaking = False
