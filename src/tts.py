@@ -8,7 +8,7 @@ import rospy
 
 from std_msgs.msg import String
 
-DEFAULT_TTS_ENGINE = "gtts"
+DEFAULT_TTS_ENGINE = "coqui"
 
 
 class SpeechEngine(object):
