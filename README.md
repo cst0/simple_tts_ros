@@ -10,7 +10,7 @@ The following TTS engines are supported:
 - gtts
 - coqui
 - ~~marytts~~ (in progress)
-- pyttsx3 (in progress)
+- pyttsx3
 
 # Dependencies
 For the sake of reducing dependencies, all supported engines are not included
