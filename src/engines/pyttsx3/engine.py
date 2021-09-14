@@ -5,16 +5,13 @@ repo_path = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + "/..")
 sys.path.append(repo_path)
 from ttsengine import TTSEngine
 
-from gtts import gTTS
-import tempfile
-
+import pyttsx3
 
 class Engine(TTSEngine):
     def __init__(self):
-        pass
+        self.eng = pyttsx3.init()
+        self.eng.setProperty('rate', 125)
 
     def say(self, text: str):
-        temp = tempfile.NamedTemporaryFile("w+")
-        tts = gTTS(text, "en")
-        tts.save(temp.name)
-        os.system("mpg321 " + self.temp.name) #TODO-- remove cli dependency
+        self.eng.say(text)
+        self.runAndWait()
