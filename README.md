@@ -8,6 +8,7 @@ directly.
 The following TTS engines are supported:
 
 - gtts
+- coqui
 - marytts
 - pyttsx3
 
