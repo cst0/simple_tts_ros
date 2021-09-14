@@ -18,6 +18,8 @@ class SpeechEngine(object):
             rospy.loginfo("No engine specified: defaulting to " + DEFAULT_TTS_ENGINE)
             speech_engine = DEFAULT_TTS_ENGINE
 
+        rospy.loginfo("Engine selected: "+speech_engine)
+
         config_path = os.path.abspath(
             os.path.dirname(os.path.abspath(__file__)) + "/../config/engines.json"
         )
