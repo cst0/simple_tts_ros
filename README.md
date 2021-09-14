@@ -9,8 +9,8 @@ The following TTS engines are supported:
 
 - gtts
 - coqui
-- marytts
-- pyttsx3
+- ~~marytts~~ (in progress)
+- ~~pyttsx3~~ (in progress)
 
 # Dependencies
 For the sake of reducing dependencies, all supported engines are not included
@@ -30,11 +30,14 @@ read from the command line. To perform this, two operating system dependencies
 default. `mpg321` can be acquired via your package manager. Future plans
 involve removing these operating-system dependencies.
 
+If using `pyttsx3`, you will likely need to install its dependency of `libespeak`
+(if on Ubuntu, this can be done via `sudo apt install libespeak-dev`).
+
 # Installation
 
 ## From Source
 
-clone and then catkin_make.
+This is a standard ros pacakge. Once the above dependencies have been resolved, clone into your catkin workspace and then run catkin_make.
 
 ## As a binary
 
