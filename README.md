@@ -18,9 +18,16 @@ can be acquired via pip:
 
 ```
 pip install gtts
+pip install tts
 pip install marytts
 pip install pyttsx3
 ```
+
+Typical usage of these packages involves generating a .wav or .mp3 that can be
+read from the command line. To perform this, two operating system dependencies
+(`aplay` and `mpg321`) are also needed. Ubuntu systems already have `aplay` by
+default. `mpg321` can be acquired via your package manager. Future plans
+involve removing these operating-system dependencies.
 
 # Installation
 
