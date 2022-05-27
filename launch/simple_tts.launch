@@ -1,5 +1,5 @@
 <launch>
-    <param name="engine" type="string" value="coqui" />
+    <param name="engine" type="string" value="gtts" />
     <node name="tts" pkg="simple_tts" type="tts.py" output="screen">
     </node>
 </launch>
