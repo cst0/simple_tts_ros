@@ -9,7 +9,7 @@ import rospy
 from simple_tts.msg import Speak
 from simple_tts.srv import SpeechRequest, SpeechRequestRequest, SpeechRequestResponse
 
-DEFAULT_TTS_ENGINE = "coqui"
+DEFAULT_TTS_ENGINE = "gtts"
 
 
 class SpeechEngine(object):
